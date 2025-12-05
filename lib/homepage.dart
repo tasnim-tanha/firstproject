@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ProfilePage.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -8,7 +9,7 @@ class Homepage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Homepage"),
-        backgroundColor: Colors.amber,
+        backgroundColor: const Color.fromARGB(255, 214, 150, 216),
         leading: Icon(Icons.home),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
@@ -18,7 +19,18 @@ class Homepage extends StatelessWidget {
           IconButton(onPressed: () {}, icon: Icon(Icons.logout)),
         ],
       ),
-      body: Text("homepage"),
+
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProfilePage()),
+            );
+          },
+          child: const Text("Go to Profile Page"),
+        ),
+      ),
     );
   }
 }
